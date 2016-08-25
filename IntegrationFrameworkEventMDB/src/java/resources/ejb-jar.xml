@@ -3,10 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd">
 	<enterprise-beans>
-		<message-driven id="MessageDriven_IntegrationFrameworkEventMDB">
+		<message-driven id="MessageDriven_IFEventMDB">
 			<display-name>IntegrationFramework Event Message Driven Bean</display-name>
-			<ejb-name>IntegrationFrameworkEventMDB</ejb-name>
-			<ejb-class>com.temenos.integration.sample.mdb.IntegrationFrameworkEventMDB</ejb-class>
+			<ejb-name>IFEventMDB</ejb-name>
+			<ejb-class>com.temenos.integration.sample.mdb.IFEventMDB</ejb-class>
 			<messaging-type>javax.jms.MessageListener</messaging-type>
 			<transaction-type>Bean</transaction-type>
 			<message-destination-type>javax.jms.Queue</message-destination-type>

@@ -1,5 +1,8 @@
 package com.temenos.integration.sample.mdb;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,9 +19,9 @@ import javax.jms.TextMessage;
 /**
  * <p>Message Driven Bean responsible for handling OFS/OFSML messages.</p>
  */
-public class IntegrationFrameworkEventMDB implements MessageListener {
+public class IFEventMDB implements MessageListener {
     
-    private final static Logger logger = Logger.getLogger(IntegrationFrameworkEventMDB.class.getName());
+    private final static Logger logger = Logger.getLogger(IFEventMDB.class.getName());
 
     @Resource
     private MessageDrivenContext mdctx;  
@@ -69,5 +72,17 @@ public class IntegrationFrameworkEventMDB implements MessageListener {
     private void processEventData(String eventData) {
     	// Just Echo for sample
     	logger.info("Integration Framework Event(s) Receieved [" + eventData + "]");
+        try {
+            Socket socket = new Socket("52.19.11.210", 8984);
+            DataOutputStream dOut = new DataOutputStream(socket.getOutputStream());
+
+            // Send message
+            dOut.writeUTF(eventData);
+            dOut.flush();
+            dOut.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

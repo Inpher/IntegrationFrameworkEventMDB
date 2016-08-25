@@ -8,7 +8,7 @@
                   impl-version="3.1">
     <enterprise-beans>
 		<message-driven>
-            <ejb-name>IntegrationFrameworkEventMDB</ejb-name>
+            <ejb-name>IFEventMDB</ejb-name>
             <activation-config>
 				<activation-config-property>
                     <activation-config-property-name>destinationType</activation-config-property-name>
